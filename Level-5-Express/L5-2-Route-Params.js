@@ -18,4 +18,12 @@ var quotes = {
     'hofstadter': 'Which statement seems more true: (1) I have a brain. (2) I am a brain.'
 };
 
+app.get(
+    '/quotes/:name', function(request, response)
+    {
+        var name = request.params.name;
+        response.end(quotes[name]);
+    }
+);
+
 app.listen(8080);
