@@ -1,11 +1,11 @@
-var warn = function(message) {
+exports.warn = function(message) {
   console.log("Warning: " + message);
 };
 
-var info = function(message) {
+exports.info = function(message) {
   console.log("Info: " + message);
 };
 
-var error = function(message) {
+exports.error = function(message) {
   console.log("Error: " + message);
 };
