@@ -18,5 +18,6 @@ http.createServer(
         );
 
         var file = fs.createReadStream('icon.png');
+        file.pipe(response);
     }
 );
