@@ -5,15 +5,11 @@
  - queries out for this search term
  - returns the json.
 
- - Require the express module
- - Create the express server 'app'
- - On a get request to '/', pipe the request(searchURL) to the response.
- - listen on port 8080
-
  */
 
 var url = require('url');
-var request = require('request');
+var modrequest = require('request');
+var express = require('express');
 
 options = {
     protocol: "http:",
@@ -24,4 +20,13 @@ options = {
 
 var searchURL = url.format(options);
 
-var app; // Create Server Here
+var app = express.createServer();
+
+app.get(
+    '/', function(request, response)
+    {
+        modrequest(searchURL).pipe(response);
+    }
+);
+
+app.listen(8080);
