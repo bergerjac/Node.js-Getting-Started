@@ -7,7 +7,7 @@
  * */
 
 // high_five.js
-var highfive = function()
+exports.highfive = function()
 {
     console.log("<smack!!>");
 };
