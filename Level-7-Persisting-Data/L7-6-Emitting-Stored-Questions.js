@@ -5,10 +5,6 @@
 
  whenever a new client connects (via socket.io) -> emit questions
 
- Use lrange command
- retrieve array of questions from 'questions' list in redis
- Inside of the lrange callback
- use forEach to loop through each question and emit it on the client
  don't use broadcast.emit (only want to send the questions to the client that is connecting to the server)
  */
 
@@ -22,6 +18,15 @@ var redisClient = redis.createClient();
 
 io.sockets.on('connection', function(client)
 {
+    var questions = redisClient.lrange('questions', 0, -1, function(error, questions)
+    {// Use lrange command, retrieve from 'questions'
+        questions.forEach(// use forEach
+            function(question)
+            {
+                client.emit('question', question);// emit each question to client
+            });
+    });
+
     client.on('answer', function(question, answer)
     {
         client.broadcast.emit('answer', question, answer);
