@@ -23,6 +23,14 @@ io.sockets.on('connection', function(client)
 
     client.on('question', function(question)
     {
-        client.broadcast.emit('question', question);
+        client.get('question_asked', function(error, isQuestionAsked)
+        {
+            if (isQuestionAsked === false)
+            {
+                client.set('question_asked', true);
+                client.broadcast.emit('question', question);
+            }
+        });
+
     });
 });
