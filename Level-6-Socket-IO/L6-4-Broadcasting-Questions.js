@@ -19,5 +19,8 @@ io.sockets.on('connection', function(client)
 {
     console.log("Client connected...");
 
-    // listen here
+    client.on('question', function(question)
+    {
+        client.broadcast.emit('question', question);
+    });
 });
