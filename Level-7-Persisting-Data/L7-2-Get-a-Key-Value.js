@@ -1,11 +1,12 @@
 /*
  Get a key
 
- - Use redis client
- - issue a get command
- - - retrieve, log value
-
  */
 
 var redis = require('redis');
-var client = redis.createClient();
+var client = redis.createClient();// Use redis client
+
+client.get('question', function(error, value)
+{// issue a get command
+    console.log(value);// retrieve, log value
+});
