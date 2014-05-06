@@ -1,0 +1,25 @@
+<!-- insertQuestion.js
+var insertQuestion = function(question){
+  var newQuestion = document.createElement('li');
+  newQuestion.innerHTML = question;
+
+  var questions = document.getElementsByTagName('ul')[0];
+  return questions.appendChild(newQuestion);
+}
+-->
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/insertQuestion.js"></script>
+
+<script>
+    /*
+     Listening for Questions
+
+     - listen for 'question' events from the server
+     - - whenever the event fires -> call insertQuestion function
+     (insertQuestion function is already created for you)
+     */
+    var server = io.connect('http://localhost:8080');
+
+    // insert code here
+</script>
