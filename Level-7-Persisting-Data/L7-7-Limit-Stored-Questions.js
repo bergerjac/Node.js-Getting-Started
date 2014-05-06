@@ -24,7 +24,7 @@ io.sockets.on('connection', function(client)
             {
                 client.emit("question", question);
             });
-    })
+    });
 
     client.on('answer', function(question, answer)
     {
@@ -40,7 +40,10 @@ io.sockets.on('connection', function(client)
                 client.set('question_asked', true);
                 client.broadcast.emit('question', question);
 
-                redisClient.lpush("questions", question);
+                redisClient.lpush("questions", question, function(error, reply)
+                {
+                    redisClient.ltrim('questions', 0, 20);
+                });
             }
         });
     });
