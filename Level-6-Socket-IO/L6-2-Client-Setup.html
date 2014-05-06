@@ -7,3 +7,8 @@ html file
 
 Express knows to serve the socket.io client js for this path.
 */
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var server = io.connect('http://localhost:8080');
+</script>
