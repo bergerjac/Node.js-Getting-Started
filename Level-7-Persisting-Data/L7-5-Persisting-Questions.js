@@ -33,7 +33,7 @@ io.sockets.on('connection', function(client)
                 client.set('question_asked', true);
                 client.broadcast.emit('question', question);
 
-                // add the question to the list here
+                redisClient.lpush('questions', question);
             }
         });
     });
