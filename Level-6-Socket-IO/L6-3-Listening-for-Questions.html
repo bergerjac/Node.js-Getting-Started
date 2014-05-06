@@ -20,6 +20,8 @@ var insertQuestion = function(question){
      (insertQuestion function is already created for you)
      */
     var server = io.connect('http://localhost:8080');
-
-    // insert code here
+    server.on('question', function(question)
+    {
+        insertQuestion(question);
+    });
 </script>
