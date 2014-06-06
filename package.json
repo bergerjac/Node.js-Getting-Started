@@ -1,22 +1,18 @@
 {
-  "name": "Real-Time-Web-With-NodeJS",
+  "name": "Node.js-Examples",
   "version": "0.0.0",
-  "description": "Code School course code",
-  "main": "index.js",
+  "description": "Real-Time Web with Node.js Code School course code",
   "dependencies": {
     "express": "~4.1.1",
     "socket.io": "~0.9.16",
     "redis": "~0.10.1"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
-    "code",
-    "school",
+    "examples",
+    "samples",
     "node.js"
   ],
-  "author": "Jake Berger",
-  "license": "BSD"
+  "author": "Jacob Berger",
+  "license": "MIT"
 }
